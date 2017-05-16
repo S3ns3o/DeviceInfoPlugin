@@ -21,6 +21,7 @@ using Plugin.DeviceInfo.Abstractions;
 using System;
 using Android.OS;
 using Plugin.CurrentActivity;
+using Android.Bluetooth;
 using static Android.Provider.Settings;
 
 namespace Plugin.DeviceInfo
@@ -113,6 +114,30 @@ namespace Plugin.DeviceInfo
                 int minWidthDp = CrossCurrentActivity.Current.Activity.Resources.Configuration.SmallestScreenWidthDp;
 
                 return  minWidthDp >= TabletCrossover ? Idiom.Tablet : Idiom.Phone;
+            }
+        }
+
+        /// <inheritdoc/>
+        public string DeviceName
+        {
+            get
+            {
+                try
+                {
+                    BluetoothAdapter bluetoothDevice = BluetoothAdapter.DefaultAdapter;
+                    if (bluetoothDevice == null)
+                    {
+                        return "Unknown";
+                    }
+                    else
+                    {
+                        return bluetoothDevice.Name;
+                    }
+                }
+                catch
+                {
+                    return "Unknown";
+                }
             }
         }
     }

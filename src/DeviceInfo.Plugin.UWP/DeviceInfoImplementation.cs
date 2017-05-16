@@ -117,6 +117,24 @@ namespace Plugin.DeviceInfo
                 return sv;
             }
         }
+
+
+        /// <inheritdoc/>
+        public string DeviceName
+        {
+            get
+            {
+                try
+                {
+                    return deviceInfo.FriendlyName;
+                }
+                catch
+                {
+                    return "Unknown";
+                }
+            }
+        }
+
         /// <inheritdoc/>
         public Abstractions.Platform Platform
         {

@@ -20,7 +20,7 @@
 using Plugin.DeviceInfo.Abstractions;
 using Microsoft.Phone.Info;
 using System;
-
+using Windows.Networking.Proximity;
 
 namespace Plugin.DeviceInfo
 {
@@ -105,5 +105,8 @@ namespace Plugin.DeviceInfo
         /// Gets Idiom of Device
         /// </summary>
         public Idiom Idiom => Idiom.Phone;
+
+        public string DeviceName => PeerFinder.DisplayName;
+           
     }
 }

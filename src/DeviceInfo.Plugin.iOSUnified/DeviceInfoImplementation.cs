@@ -174,6 +174,17 @@ namespace Plugin.DeviceInfo
         public string Version => UIDevice.CurrentDevice.SystemVersion;
 #endif
 
+        /// <summary>
+        /// Returns the version number as a string
+        /// </summary>
+#if __MACOS__
+        public string DeviceName => info.HostName;
+#elif __WATCHOS__
+        public string DeviceName => WKInterfaceDevice.CurrentDevice.Name;
+#else
+        public string DeviceName => UIDevice.CurrentDevice.Name;
+#endif
+
 
         /// <inheritdoc/>
         public Version VersionNumber

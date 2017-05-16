@@ -61,6 +61,11 @@ namespace Plugin.DeviceInfo.Abstractions
             get;
         }
 
+        /// <summary>
+        /// Gets the name of the device
+        /// </summary>
+        string DeviceName { get; }
+
 
         /// <summary>
         /// Get the platform of the device

@@ -27,7 +27,7 @@ using System.Linq;
 using Windows.UI.Xaml.Controls;
 using System.Text.RegularExpressions;
 using Windows.Security.ExchangeActiveSyncProvisioning;
-
+using Windows.Networking.Proximity;
 
 namespace Plugin.DeviceInfo
 {
@@ -144,5 +144,7 @@ namespace Plugin.DeviceInfo
         public Idiom Idiom => Idiom.Phone;
 
 #endif
+
+        public string DeviceName => PeerFinder.DisplayName;
     }
 }
