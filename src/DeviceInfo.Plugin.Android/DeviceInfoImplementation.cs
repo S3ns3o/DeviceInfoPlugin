@@ -23,6 +23,7 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Android.Bluetooth;
 using static Android.Provider.Settings;
+using Android.App;
 
 namespace Plugin.DeviceInfo
 {
@@ -138,6 +139,15 @@ namespace Plugin.DeviceInfo
                 {
                     return "Unknown";
                 }
+            }
+        }
+
+        /// <inheritdoc/>
+        public string AppVersionNumber
+        {
+            get
+            {
+                return Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
             }
         }
     }

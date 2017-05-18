@@ -18,6 +18,7 @@
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
 using Plugin.DeviceInfo.Abstractions;
+using Foundation;
 
 
 
@@ -247,6 +248,17 @@ namespace Plugin.DeviceInfo
         #endif
             }
 
+        }
+
+
+        /// <inheritdoc/>
+        public string AppVersionNumber
+        {
+            get
+            {
+                NSObject ver = NSBundle.MainBundle.InfoDictionary["CFBundleShortVersionString"];
+                return ver.ToString();
+            }
         }
     }
 }

@@ -76,5 +76,11 @@ namespace Plugin.DeviceInfo.Abstractions
         /// Get the idom of the device
         /// </summary>
         Idiom Idiom { get; }
+
+
+        /// <summary>
+        /// Get the app version currently installed on the device
+        /// </summary>
+        string AppVersionNumber { get; }
     }
 }
